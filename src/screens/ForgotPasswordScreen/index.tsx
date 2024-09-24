@@ -1,6 +1,6 @@
 import React from 'react';
 import Screen from '../../components/Screen';
-import {Image, TouchableOpacity, View} from 'react-native';
+import { Image, TouchableOpacity, View } from 'react-native';
 import {
   EmailIcon,
   EmailIconDark,
@@ -10,23 +10,30 @@ import {
   SMSIcon,
 } from '../../assets/images';
 import Button from '../../components/Button';
-import {useNavigation} from '@react-navigation/native';
-import {StackNavigationProp} from '@react-navigation/stack';
-import routes, {RootStackParamList} from '../../navigation/routes';
+import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import routes, { RootStackParamList } from '../../navigation/routes';
 import Header from '../../components/Header';
+import { StatusBar } from 'react-native';
 
 function ForgotPasswordScreen() {
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
   return (
     <Screen
       header={<Header title="Sıfırlama Yöntemi Seç" />}
-      className="items-center justify-center px-[40px]">
+      className="items-center justify-start px-[40px] bg-white ">
+      <StatusBar
+        translucent={true}
+        backgroundColor="white"
+        barStyle={'dark-content' }
+        // barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+      />
       <Image
         source={ForgotPasswordImage}
         resizeMode="contain"
-        className="h-[154px]"
+        className="h-[140px] mt-[70px]"
       />
-      <View className="mt-[34px] w-full" style={{rowGap: 20}}>
+      <View className="mt-[34px] w-full" style={{ rowGap: 15 }}>
         <Button
           image={EmailIconDark}
           onPress={() =>

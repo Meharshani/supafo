@@ -1,15 +1,15 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Screen from '../../components/Screen';
-import {Image, ScrollView, TouchableOpacity, View} from 'react-native';
-import {EmailIcon, Icon, PasswordIcon, UserIcon} from '../../assets/images';
+import { Image, ScrollView, StatusBar, TouchableOpacity, View } from 'react-native';
+import { EmailIcon, Icon, PasswordIcon, UserIcon } from '../../assets/images';
 import Button from '../../components/Button';
 import Input from '../../components/Input';
 import Divider from '../../components/Divider';
 import SocialButtons from './components/SocialButtons';
 import Text from '../../components/Text';
-import {useNavigation} from '@react-navigation/native';
-import {StackNavigationProp} from '@react-navigation/stack';
-import routes, {RootStackParamList} from '../../navigation/routes';
+import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import routes, { RootStackParamList } from '../../navigation/routes';
 import PhoneInput from '../../components/PhoneInput';
 
 function SignupScreen() {
@@ -20,13 +20,21 @@ function SignupScreen() {
   const [password, setPassword] = useState('');
 
   return (
-    <Screen scrollview className="items-center">
+    <Screen scrollview className="items-center bg-white ">
+      <StatusBar
+        translucent={true}
+        backgroundColor="white"
+        barStyle={'dark-content'}
+      // barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+      />
+      <Text className="text-[#000] top-7 font-medium text-[15px] mb-1">Kayıt Ol</Text>
+
       <Image
         source={Icon}
         resizeMode="contain"
-        className="h-[154px] mt-[37px]"
+        className="h-[90px] w-[104px] mt-[45px]"
       />
-      <View className="mt-[34px] w-full" style={{rowGap: 20}}>
+      <View className="mt-[34px] w-full" style={{ rowGap: 15 }}>
         <Input
           value={name}
           onChangeText={text => setName(text)}
@@ -50,22 +58,24 @@ function SignupScreen() {
           icon={PasswordIcon}
           isPassword
         />
-        <Button className="mt-[10px] rounded-[15px]">Giriş Yap</Button>
+        <Button className="mt-[7px] rounded-[15px]">Giriş Yap</Button>
       </View>
-      <View className="my-[33px]">
-        <Divider text="OR" />
+      <View className="my-[15px]">
+        <Divider text="VEYA" />
       </View>
       <SocialButtons
-        googleOnPress={() => {}}
-        appleOnPress={() => {}}
-        fbOnPress={() => {}}
+        googleOnPress={() => { }}
+        appleOnPress={() => { }}
+        fbOnPress={() => { }}
       />
-      <View className="flex-row mt-[33px]">
-        <Text>Hesabın var mı? </Text>
+      <View className="flex-row mt-[10px]">
+        <Text className='font-medium text-[#000]'>Hesabın var mı? </Text>
         <TouchableOpacity
           activeOpacity={0.6}
           onPress={() => navigation.navigate(routes.LOGIN_SCREEN)}>
-          <Text className="text-[#66AE7B]">Giriş Yap</Text>
+          <Text className="text-[#66AE7B] font-medium"
+            style={{ textDecorationLine: 'underline', textDecorationColor: '#66AE7B', lineHeight: 20 }}
+          >Giriş Yap</Text>
         </TouchableOpacity>
       </View>
     </Screen>

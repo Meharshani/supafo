@@ -9,18 +9,18 @@ import {RootStackParamList} from '../navigation/routes';
 export default function Header({title, noBackButton = true}: HeaderType) {
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
   return (
-    <View className="w-full flex-row py-[12px] px-[16px] justify-center items-center">
+    <View className="w-full flex-row py-[16px] px-[16px] justify-center items-center bg-white">
       {noBackButton && (
         <TouchableOpacity
           onPress={() => navigation.goBack()}
           className="w-[24px] h-[24px] absolute left-[16px]">
           <IOSIcons
             name="arrow-back-outline"
-            style={{color: '#808080', fontSize: 24}}
+            style={{color: '#333333', fontSize: 24}}
           />
         </TouchableOpacity>
       )}
-      <Text className="text-[16px] font-[500]">{title}</Text>
+      <Text className="text-[16px] font-[500] text-[#000]">{title}</Text>
     </View>
   );
 }

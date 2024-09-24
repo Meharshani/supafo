@@ -54,17 +54,17 @@ function SetPasswordScreen() {
     return (
       <Screen
         header={<Header noBackButton={false} title="Yeni Şifre Oluştur" />}
-        className="items-center justify-start px-[40px] pt-[85px]">
+        className="items-center justify-center px-[20px] pt-[150px] bg-white">
         <Image
           source={SetPasswordSuccessImage}
           resizeMode="contain"
-          className="h-[154px]"
+          className="h-[180px]"
         />
-        <View className="mt-[43px] w-full" style={{rowGap: 20}}>
-          <Text className="text-center">Şifreniz Başarıyla Güncellendi!</Text>
+        <View className="mt-[43px] flex-1 w-full" style={{rowGap: 15}}>
+          <Text className="text-center text-black">Şifreniz Başarıyla Güncellendi!</Text>
           <Button
             onPress={() => navigation.navigate(routes.LOGIN_SCREEN)}
-            className="mt-[43px] rounded-[15px]">
+            className="absolute bottom-4  transform -translate-x-1/2 rounded-[15px]">
             Giriş Yap
           </Button>
         </View>
@@ -75,13 +75,13 @@ function SetPasswordScreen() {
   return (
     <Screen
       header={<Header title="Yeni Şifre Oluştur" />}
-      className="items-center">
+      className="items-center bg-white ">
       <Image
         source={Icon}
         resizeMode="contain"
-        className="h-[154px] mt-[37px]"
+        className="h-[90px] w-[104px] mt-[15px]"
       />
-      <View className="mt-[34px] w-full" style={{rowGap: 20}}>
+      <View className="mt-[34px] w-full flex-1" style={{rowGap: 15}}>
         <Input
           value={password}
           onChangeText={text => setPassword(text)}
@@ -97,7 +97,7 @@ function SetPasswordScreen() {
           isPassword
         />
         <View
-          className="bg-white border-[1px] border-[#66AE7B] rounded-[15px] p-[19px]"
+          className="bg-white  p-[10px]"
           style={{gap: 12}}>
           <ValueCheck
             check={passwordValidations.lengthCheck}
@@ -112,7 +112,8 @@ function SetPasswordScreen() {
             text="Rakam içermeli."
           />
         </View>
-        <Button onPress={handleContinue} className="mt-[10px] rounded-[15px]">
+        <Button onPress={handleContinue} 
+          className="absolute bottom-4  transform -translate-x-1/2 rounded-[15px]">
           Devam Et
         </Button>
       </View>
